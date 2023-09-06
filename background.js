@@ -16,6 +16,18 @@ const schedule = {
         dayF: ['pink', 'red', 'yellow', 'orange', 'green'],
         dayG: ['blue', 'tan', 'violet', 'pink', 'red'],
         dayH: ['yellow', 'orange', 'green', 'blue', 'tan']
+    },
+    GOLD: {
+        //Navy + Gold = same
+        //No M1 + M2 on schedule
+        dayA: ['violet', 'pink', 'red', 'yellow', 'orange'],
+        dayB: ['green', 'blue', 'tan', 'violet', 'pink'],
+        dayC: ['yellow', 'red', 'orange', 'green', 'blue'],
+        dayD: ['tan', 'violet', 'pink', 'red', 'yellow'],
+        dayE: ['orange', 'green', 'blue', 'tan', 'violet'],
+        dayF: ['pink', 'red', 'yellow', 'orange', 'green'],
+        dayG: ['blue', 'tan', 'violet', 'pink', 'red'],
+        dayH: ['yellow', 'orange', 'green', 'blue', 'tan']
     }
 };
 
@@ -25,7 +37,7 @@ function getToday() {
         //If date on computer is wrong then date taken is wrong
         const currentDate = new Date().toISOString().split('T')[0];
         //Takes the url for the info
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3-6MgEPFUcHbLfa7q97_I6BI8CJvLZA0FDPxMwKOEFKYZs1GAw_4CRt6oOIWhMEITpOKzYrW2u7Ef/pub?gid=0&single=true&output=csv';
+        const url = 'https://docs.google.com/spreadsheets/d/1diCphG3V5YP3LJPLDY85_GgixC_jiBHczaUgGC4suF8/edit?usp=sharing';
         //Creates new url for me
         const cacheBuster = new Date().getTime();
         const urlWithCacheBuster = `${url}&_=${cacheBuster}`;
@@ -55,3 +67,5 @@ function getToday() {
         .catch(error => console.error('An error occurred:', error));
     });
 }
+
+getToday();
