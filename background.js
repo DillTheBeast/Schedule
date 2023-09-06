@@ -1,3 +1,5 @@
+let currentDate;
+
 const times = {
     //Shows start for each class time
     //In miltary so no AM and PM needed
@@ -35,7 +37,7 @@ function getToday() {
     return new Promise((resolve, reject) => {
         //Takes date through local computer time
         //If date on computer is wrong then date taken is wrong
-        const currentDate = new Date().toISOString().split('T')[0];
+        currentDate = new Date().toISOString().split('T')[0];
         //Takes the url for the info
         const url = 'https://docs.google.com/spreadsheets/d/1diCphG3V5YP3LJPLDY85_GgixC_jiBHczaUgGC4suF8/edit?usp=sharing';
         //Creates new url for me
@@ -68,4 +70,9 @@ function getToday() {
     });
 }
 
-getToday();
+function display() {
+    if(getToday()) {
+
+    }
+}
+
