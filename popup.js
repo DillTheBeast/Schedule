@@ -8,15 +8,15 @@
 // });
 
 const times = {
-    weekday: [800, 805, 915, 1020, 1050, 1200, 1250, 1415, 1520],
+    weekday: [805, 910, 915, 1020, 1050, 1155, 1250, 210, 215, 320],
 };
 chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
     const scheduleDiv = document.getElementById("schedule");
     const t = 0;
     if (response.status === "success") {
         for(let c = 0; c < 5; c+=1) {
-            scheduleDiv.textContent = c.toString();
-            //t += 2;
+            scheduleDiv.textContent = scheduleDiv.textContent + response.colors[c] + times.weekday[t] + times.weekday[t + 1];
+            t += 2;
         }
     } else {
         scheduleDiv.textContent = "Error fetching schedule: " + response.error;
