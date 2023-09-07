@@ -57,6 +57,35 @@ function getToday() {
     });
 }
 
+function getTomorrow() {
+    return new Promise((resolve, reject) => {
+        currentDate = new Date().toISOString().split('T')[1];
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3-6MgEPFUcHbLfa7q97_I6BI8CJvLZA0FDPxMwKOEFKYZs1GAw_4CRt6oOIWhMEITpOKzYrW2u7Ef/pub?gid=0&single=true&output=csv';
+        const cacheBuster = new Date().getTime();
+        const urlWithCacheBuster = `${url}&_=${cacheBuster}`;
+        fetch(urlWithCacheBuster, { cache: "no-store" })    
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                for (let i = 1; i < lines.length; i++) {
+                    const [date, scheduleDay, week] = lines[i].split(',');
+                    if (date === currentDate) {
+                        const correctDay = scheduleDay.trim();
+                        const colors = schedule.NAVY[correctDay];
+                        resolve(colors);
+                        return;
+                    }
+                }
+                console.log(`No schedule found for ${currentDate}`);
+                reject(new Error(`No schedule found for ${currentDate}`));
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+                reject(error);
+            });
+    });
+}
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "getTodaySchedule") {
         getToday().then(colors => {
@@ -65,5 +94,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             sendResponse({ status: "error", error: error.toString() });
         });
         return true;  // Indicates you wish to send a response asynchronously.
+    }
+    if (message.action === "getTomorrowSchedule") {
+        getToday().then(colors => {
+            
+        })
     }
 });
