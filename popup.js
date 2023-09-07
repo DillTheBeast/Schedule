@@ -8,17 +8,17 @@
 // });
 
 const times = {
-    //Shows start for each class time
-    //In miltary so no AM and PM needed
-    weekday: [810, 915, 1020, 1050, 1200, 1250, 1415, 1520],
+    weekday: [0, 800, 805, 915, 1020, 1050, 1200, 1250, 1415, 1520],
 };
-
 chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
     const scheduleDiv = document.getElementById("schedule");
-    
+    const t = 0;
     if (response.status === "success") {
-        
-        scheduleDiv.textContent = response.colors[0];
+        for(let c = 0; c < colors.length; c++) {
+            if c = 0 
+            scheduleDiv.textContent = scheduleDiv.textContent + c;
+            t += 2;
+        }
     } else {
         scheduleDiv.textContent = "Error fetching schedule: " + response.error;
     }
