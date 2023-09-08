@@ -59,7 +59,7 @@ function getToday() {
 
 function getTomorrow() {
     return new Promise((resolve, reject) => {
-        currentDate = new Date().toISOString().split('T')[1];
+        tomorrowDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split('T')[0];
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3-6MgEPFUcHbLfa7q97_I6BI8CJvLZA0FDPxMwKOEFKYZs1GAw_4CRt6oOIWhMEITpOKzYrW2u7Ef/pub?gid=0&single=true&output=csv';
         const cacheBuster = new Date().getTime();
         const urlWithCacheBuster = `${url}&_=${cacheBuster}`;
@@ -69,15 +69,15 @@ function getTomorrow() {
                 const lines = data.split('\n');
                 for (let i = 1; i < lines.length; i++) {
                     const [date, scheduleDay, week] = lines[i].split(',');
-                    if (date === currentDate) {
-                        const correctDay = scheduleDay.trim();
-                        const colors = schedule.NAVY[correctDay];
+                    if (date === tomorrowDate) {
+                        const correctDay1 = scheduleDay.trim();
+                        const colors = schedule.NAVY[correctDay1];
                         resolve(colors);
                         return;
                     }
                 }
-                console.log(`No schedule found for ${currentDate}`);
-                reject(new Error(`No schedule found for ${currentDate}`));
+                console.log(`No schedule found for ${tomorrowDate}`);
+                reject(new Error(`No schedule found for ${tomorrowDate}`));
             })
             .catch(error => {
                 console.error('An error occurred:', error);
@@ -96,8 +96,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true;  // Indicates you wish to send a response asynchronously.
     }
     if (message.action === "getTomorrowSchedule") {
-        getToday().then(colors => {
-            
-        })
+        getTomorrow().then(colors => {
+            sendResponse({ status: "success", colors: colors1 });
+        }).catch(error => {
+            sendResponse({ status: "error", error: error.toString() });
+        });
     }
 });
