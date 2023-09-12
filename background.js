@@ -96,8 +96,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true;  // Indicates you wish to send a response asynchronously.
     }
     if (message.action === "getTomorrowSchedule") {
+        console.log("Fetching tomorrow's schedule...");
         getTomorrow().then(colors => {
-            sendResponse({ status: "success", colors: colors1 });
+            sendResponse({ status: "success", colors: colors });
         }).catch(error => {
             sendResponse({ status: "error", error: error.toString() });
         });
