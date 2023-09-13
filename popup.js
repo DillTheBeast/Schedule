@@ -18,16 +18,13 @@ chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
 
 chrome.runtime.sendMessage({ action: "getTomorrowSchedule" }, response => {
     const tomorrowScheduleDiv = document.getElementById("tomorrowSchedule");
-    const Test = "Testing";
-    tomorrowScheduleDiv.innerHTML = response.colors.length;
     if (response.status === "success") {
-        tomorrowScheduleDiv.innerHTML = Test;
         let output = "";
         for(let c = 0; c < response.colors.length; c++) {
             output += response.colors[c] + " " + times.weekday[2*c] + " " + times.weekday[2*c + 1] + "<br>";
         }
+        tomorrowScheduleDiv.innerHTML = output;
     } else {
-        //tomorrowScheduleDiv.textContent = "Error fetching tomorrow's schedule: " + response.error;
-        tomorrowScheduleDiv.innerHTML = "Test1";
-    } 
+        tomorrowScheduleDiv.textContent = "Error fetching today's schedule: " + response.error;
+    }
 });
