@@ -5,26 +5,26 @@ const schedule = {
         //Navy + Gold = same
         //No M1 + M2 on schedule
         //Switch my classes with whatever classes you have
-        dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-        dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-        dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-        dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-        dayE: ['orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation', 'violet/History'],
-        dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-        dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-        dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+        dayA: ['violet/History', 'pink/Free', 'red/English', 'yellow/Chem', 'orange/French'],
+        dayB: ['green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free'],
+        dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Free', 'blue/Theater Arts'],
+        dayD: ['tan/Math', 'violet/History', 'pink/Free', 'red/English', 'yellow/Chem'],
+        dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
+        dayF: ['pink/Free', 'red/English', 'yellow/Chem', 'orange/French', 'green/Free'],
+        dayG: ['blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free', 'red/English'],
+        dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
     },
     GOLD: {
         //Navy + Gold = same
         //No M1 + M2 on schedule
-        dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-        dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-        dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-        dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-        dayE: ['orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation', 'violet/History'],
-        dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-        dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-        dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+        dayA: ['violet/History', 'pink/Free', 'red/English', 'yellow/Chem', 'orange/French'],
+        dayB: ['green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free'],
+        dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Free', 'blue/Theater Arts'],
+        dayD: ['tan/Math', 'violet/History', 'pink/Free', 'red/English', 'yellow/Chem'],
+        dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
+        dayF: ['pink/Free', 'red/English', 'yellow/Chem', 'orange/French', 'green/Free'],
+        dayG: ['blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free', 'red/English'],
+        dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
     }
 };
 

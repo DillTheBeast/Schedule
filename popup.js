@@ -8,7 +8,8 @@ chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
     if (response.status === "success") {
         let output = "";
         for(let c = 0; c < response.colors.length; c++) {
-            output += response.colors[c] + " " + times.weekday[2*c] + " " + times.weekday[2*c + 1] + "<br>";
+            const [color, className] = response.colors[c].split('/');
+            output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
         }
         todayScheduleDiv.innerHTML = output;
     } else {
@@ -21,7 +22,8 @@ chrome.runtime.sendMessage({ action: "getTomorrowSchedule" }, response => {
     if (response.status === "success") {
         let output = "";
         for(let c = 0; c < response.colors.length; c++) {
-            output += response.colors[c] + " " + times.weekday[2*c] + " " + times.weekday[2*c + 1] + "<br>";
+            const [color, className] = response.colors[c].split('/');
+            output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
         }
         tomorrowScheduleDiv.innerHTML = output;
     } else {
