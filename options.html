@@ -2,13 +2,55 @@
 <html>
 <head>
     <title>Options</title>
+    <style>
+        .option-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .option-label {
+            width: 50px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Add your options UI here, e.g., checkboxes, buttons, dropdowns, etc. -->
     <label>
-        <input type="checkbox" id="myCheckbox"> Enable feature
+        <div class="option-row">
+            <label class="option-label">Red:</label>
+            <input class="option-input" type="text" id="RedColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Blue:</label>
+            <input class="option-input" type="text" id="BlueColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Green:</label>
+            <input class="option-input" type="text" id="GreenColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Yellow:</label>
+            <input class="option-input" type="text" id="YellowColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Orange:</label>
+            <input class="option-input" type="text" id="OrangeColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Tan:</label>
+            <input class="option-input" type="text" id="TanColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Purple:</label>
+            <input class="option-input" type="text" id="PurpleColor">
+        </div>
+        <div class="option-row">
+            <label class="option-label">Pinl:</label>
+            <input class="option-input" type="text" id="PinkColor">
+        </div>
+        
     </label>
-    
+    <button id="saveOptions">Save</button>
+    <div id="status"></div>
     <script src="options.js"></script>
 </body>
 </html>

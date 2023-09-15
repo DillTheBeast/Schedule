@@ -1,5 +1,10 @@
 let currentDate;
 
+chrome.storage.sync.get('PurpleColor', function(data) {
+    PurpleColor = data.PurpleColor;
+    // Now you can use PurpleColor in your schedule
+});
+
 const schedule = {
     NAVY: {
         //Navy + Gold = same
@@ -16,7 +21,7 @@ const schedule = {
         // dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
 
         //Me
-        dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
+        dayA: [PurpleColor, 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
         dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
         dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
         dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
