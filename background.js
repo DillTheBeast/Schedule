@@ -70,7 +70,7 @@ function getTomorrow() {
                     }
                 }
                 console.log(`No schedule found for ${tomorrowDate}`);
-                reject(new Error(`No schedule found for ${tomorrowDate}`));
+                reject(`No School tomorrow YAY!!!`);
             })
             .catch(error => {
                 console.error('An error occurred:', error);
@@ -100,7 +100,8 @@ function getToday() {
                     }
                 }
                 console.log(`No schedule found for ${currentDate}`);
-                reject(new Error(`No schedule found for ${currentDate}`));
+                //reject(new Error(`No schedule found for ${currentDate}`));
+                reject(`No School today YAY!!!`);
             })
             .catch(error => {
                 console.error('An error occurred:', error);

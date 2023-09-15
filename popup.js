@@ -13,7 +13,7 @@ chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
         }
         todayScheduleDiv.innerHTML = output;
     } else {
-        todayScheduleDiv.textContent = "Error fetching today's schedule: " + response.error;
+        todayScheduleDiv.textContent = response.error;
     }
 });
 
@@ -27,6 +27,6 @@ chrome.runtime.sendMessage({ action: "getTomorrowSchedule" }, response => {
         }
         tomorrowScheduleDiv.innerHTML = output;
     } else {
-        tomorrowScheduleDiv.textContent = "Error fetching today's schedule: " + response.error;
+        tomorrowScheduleDiv.textContent = response.error;
     }
 });
