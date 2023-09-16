@@ -1,62 +1,63 @@
 let currentDate;
+let PurpleColor;
 
 chrome.storage.sync.get('PurpleColor', function(data) {
     PurpleColor = data.PurpleColor;
     // Now you can use PurpleColor in your schedule
+
+    const schedule = {
+        NAVY: {
+            //Navy + Gold = same
+            //No M1 + M2 on schedule
+    
+            //Graham
+            // dayA: ['violet/History', 'pink/Free', 'red/English', 'yellow/Chem', 'orange/French'],
+            // dayB: ['green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free'],
+            // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Free', 'blue/Theater Arts'],
+            // dayD: ['tan/Math', 'violet/History', 'pink/Free', 'red/English', 'yellow/Chem'],
+            // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
+            // dayF: ['pink/Free', 'red/English', 'yellow/Chem', 'orange/French', 'green/Free'],
+            // dayG: ['blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free', 'red/English'],
+            // dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
+    
+            //Me
+            dayA: [PurpleColor, 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
+            dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
+            dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
+            dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
+            dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
+            dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
+            dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
+            dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+    
+            //Varun
+            //dayA: ['violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French'],
+            // dayB: ['green/Band', 'blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc'],
+            // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Band', 'blue/Free'],
+            // dayD: ['tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem'],
+            // dayE: ['orange/French', 'green/Band', 'blue/Free', 'tan/CSP', 'violet/History'],
+            // dayF: ['pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French', 'green/Band'],
+            // dayG: ['blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English'],
+            // dayH: ['yellow/Chem', 'orange/French', 'green/Band', 'blue/Free', 'tan/CSP'],
+    
+            //Greg
+            //dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
+            // dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
+            // dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
+            // dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
+            // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
+            // dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
+            // dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
+            // dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+        }
+    };
 });
-
-const schedule = {
-    NAVY: {
-        //Navy + Gold = same
-        //No M1 + M2 on schedule
-
-        //Graham
-        // dayA: ['violet/History', 'pink/Free', 'red/English', 'yellow/Chem', 'orange/French'],
-        // dayB: ['green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free'],
-        // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Free', 'blue/Theater Arts'],
-        // dayD: ['tan/Math', 'violet/History', 'pink/Free', 'red/English', 'yellow/Chem'],
-        // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-        // dayF: ['pink/Free', 'red/English', 'yellow/Chem', 'orange/French', 'green/Free'],
-        // dayG: ['blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free', 'red/English'],
-        // dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
-
-        //Me
-        dayA: [PurpleColor, 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-        dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-        dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-        dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-        dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-        dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-        dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-        dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
-
-        //Varun
-        //dayA: ['violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French'],
-        // dayB: ['green/Band', 'blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc'],
-        // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Band', 'blue/Free'],
-        // dayD: ['tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem'],
-        // dayE: ['orange/French', 'green/Band', 'blue/Free', 'tan/CSP', 'violet/History'],
-        // dayF: ['pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French', 'green/Band'],
-        // dayG: ['blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English'],
-        // dayH: ['yellow/Chem', 'orange/French', 'green/Band', 'blue/Free', 'tan/CSP'],
-
-        //Greg
-        //dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-        // dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-        // dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-        // dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-        // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-        // dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-        // dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-        // dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
-    }
-};
 
 
 function getTomorrow() {
     return new Promise((resolve, reject) => {
         let currentDate = new Date();
-        currentDate.setDate(currentDate.getDate() + 1);  // Adjust to the next day
+        currentDate.setDate(currentDate.getDate() + 4);  // Adjust to the next day
         const tomorrowDate = currentDate.toISOString().split('T')[0];
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3-6MgEPFUcHbLfa7q97_I6BI8CJvLZA0FDPxMwKOEFKYZs1GAw_4CRt6oOIWhMEITpOKzYrW2u7Ef/pub?gid=0&single=true&output=csv';
         const cacheBuster = new Date().getTime();
