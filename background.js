@@ -60,7 +60,7 @@ chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor'
 function getTomorrow() {
     return new Promise((resolve, reject) => {
         let currentDate = new Date();
-        currentDate.setDate(currentDate.getDate() + 4);  // Adjust to the next day
+        currentDate.setDate(currentDate.getDate() + 1);  // Adjust to the next day
         const tomorrowDate = currentDate.toISOString().split('T')[0];
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3-6MgEPFUcHbLfa7q97_I6BI8CJvLZA0FDPxMwKOEFKYZs1GAw_4CRt6oOIWhMEITpOKzYrW2u7Ef/pub?gid=0&single=true&output=csv';
         const cacheBuster = new Date().getTime();
