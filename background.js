@@ -1,11 +1,26 @@
 let currentDate;
 let PurpleColor;
+let BlueColor;
+let GreenColor;
+let YellowColor;
+let OrangeColor;
+let TanColor;
+let PinkColor;
+let RedColor;
+let schedule;
 
-chrome.storage.sync.get('PurpleColor', function(data) {
+chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor', 'OrangeColor', 'TanColor', 'PinkColor', 'RedColor'], function(data) {
     PurpleColor = data.PurpleColor;
+    BlueColor = data.BlueColor;
+    GreenColor = data.GreenColor;
+    YellowColor = data.YellowColor;
+    OrangeColor = data.OrangeColor;
+    TanColor = data.TanColor;
+    PinkColor = data.PinkColor;
+    RedColor = data.RedColor;
     // Now you can use PurpleColor in your schedule
 
-    const schedule = {
+    schedule = {
         NAVY: {
             //Navy + Gold = same
             //No M1 + M2 on schedule
@@ -21,14 +36,14 @@ chrome.storage.sync.get('PurpleColor', function(data) {
             // dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
     
             //Me
-            dayA: [PurpleColor, 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-            dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-            dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-            dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-            dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-            dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-            dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-            dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+            dayA: [PurpleColor, PinkColor, RedColor, YellowColor, OrangeColor],
+            dayB: [GreenColor, BlueColor, TanColor, PurpleColor, PinkColor],
+            dayC: [YellowColor, RedColor, OrangeColor, GreenColor, BlueColor],
+            dayD: [TanColor, PurpleColor, PinkColor, RedColor, YellowColor],
+            dayE: [OrangeColor, GreenColor, BlueColor, TanColor, PurpleColor],
+            dayF: [PinkColor, RedColor, YellowColor, OrangeColor, GreenColor],
+            dayG: [BlueColor, TanColor, PurpleColor, PinkColor, RedColor],
+            dayH: [YellowColor, OrangeColor, GreenColor, BlueColor, TanColor],
     
             //Varun
             //dayA: ['violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French'],
@@ -51,6 +66,26 @@ chrome.storage.sync.get('PurpleColor', function(data) {
             // dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
         }
     };
+
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.action === "getTodaySchedule") {
+            getToday().then(colors => {
+                sendResponse({ status: "success", colors: colors });
+            }).catch(error => {
+                sendResponse({ status: "error", error: error.toString() });
+            });
+            return true;  // Indicates you wish to send a response asynchronously.
+        }
+        if (message.action === "getTomorrowSchedule") {
+            console.log("Fetching tomorrow's schedule...");
+            getTomorrow().then(colors => {
+                sendResponse({ status: "success", colors: colors });
+            }).catch(error => {
+                sendResponse({ status: "error", error: error.toString() });
+            });
+            return true;  // Indicates you wish to send a response asynchronously.
+        }
+    });
 });
 
 
@@ -115,24 +150,3 @@ function getToday() {
             });
     });
 }
-
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === "getTodaySchedule") {
-        getToday().then(colors => {
-            sendResponse({ status: "success", colors: colors });
-        }).catch(error => {
-            sendResponse({ status: "error", error: error.toString() });
-        });
-        return true;  // Indicates you wish to send a response asynchronously.
-    }
-    if (message.action === "getTomorrowSchedule") {
-        console.log("Fetching tomorrow's schedule...");
-        getTomorrow().then(colors => {
-            sendResponse({ status: "success", colors: colors });
-        }).catch(error => {
-            sendResponse({ status: "error", error: error.toString() });
-        });
-        return true;  // Indicates you wish to send a response asynchronously.
-    }
-});
