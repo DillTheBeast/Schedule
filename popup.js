@@ -8,8 +8,10 @@ chrome.runtime.sendMessage({ action: "getTodaySchedule" }, response => {
     if (response.status === "success") {
         let output = "";
         for(let c = 0; c < response.colors.length; c++) {
-            const [color, className] = response.colors[c].split('/');
-            output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
+            //const [color, className] = response.colors[c].split('/');
+            console.log(response.colors[c]);
+            output += `<span>${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
+            //output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
         }
         todayScheduleDiv.innerHTML = output;
     } else {
@@ -22,8 +24,11 @@ chrome.runtime.sendMessage({ action: "getTomorrowSchedule" }, response => {
     if (response.status === "success") {
         let output = "";
         for(let c = 0; c < response.colors.length; c++) {
-            const [color, className] = response.colors[c].split('/');
-            output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
+            //const [color, className] = response.colors[c].split('/');
+            const[className] = response.colors[c];
+            console.log(response.colors[c]);
+            output += `<span>${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
+            //output += `<span style="color:${color}">${className}</span> <span style="color:white">${times.weekday[2*c]} ${times.weekday[2*c + 1]}</span><br>`;
         }
         tomorrowScheduleDiv.innerHTML = output;
     } else {
