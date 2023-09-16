@@ -24,46 +24,14 @@ chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor'
         NAVY: {
             //Navy + Gold = same
             //No M1 + M2 on schedule
-    
-            //Graham
-            // dayA: ['violet/History', 'pink/Free', 'red/English', 'yellow/Chem', 'orange/French'],
-            // dayB: ['green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free'],
-            // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Free', 'blue/Theater Arts'],
-            // dayD: ['tan/Math', 'violet/History', 'pink/Free', 'red/English', 'yellow/Chem'],
-            // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-            // dayF: ['pink/Free', 'red/English', 'yellow/Chem', 'orange/French', 'green/Free'],
-            // dayG: ['blue/Theater Arts', 'tan/Math', 'violet/History', 'pink/Free', 'red/English'],
-            // dayH: ['yellow/Chem', 'orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math'],
-    
-            //Me
-            dayA: [PurpleColor, PinkColor, RedColor, YellowColor, OrangeColor],
-            dayB: [GreenColor, BlueColor, TanColor, PurpleColor, PinkColor],
-            dayC: [YellowColor, RedColor, OrangeColor, GreenColor, BlueColor],
-            dayD: [TanColor, PurpleColor, PinkColor, RedColor, YellowColor],
-            dayE: [OrangeColor, GreenColor, BlueColor, TanColor, PurpleColor],
-            dayF: [PinkColor, RedColor, YellowColor, OrangeColor, GreenColor],
-            dayG: [BlueColor, TanColor, PurpleColor, PinkColor, RedColor],
-            dayH: [YellowColor, OrangeColor, GreenColor, BlueColor, TanColor],
-    
-            //Varun
-            //dayA: ['violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French'],
-            // dayB: ['green/Band', 'blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc'],
-            // dayC: ['yellow/Chem', 'red/English', 'orange/French', 'green/Band', 'blue/Free'],
-            // dayD: ['tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English', 'yellow/Chem'],
-            // dayE: ['orange/French', 'green/Band', 'blue/Free', 'tan/CSP', 'violet/History'],
-            // dayF: ['pink/PreCalc', 'red/English', 'yellow/Chem', 'orange/French', 'green/Band'],
-            // dayG: ['blue/Free', 'tan/CSP', 'violet/History', 'pink/PreCalc', 'red/English'],
-            // dayH: ['yellow/Chem', 'orange/French', 'green/Band', 'blue/Free', 'tan/CSP'],
-    
-            //Greg
-            //dayA: ['violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish'],
-            // dayB: ['green/Free', 'blue/English', 'tan/Innovation', 'violet/History', 'pink/Math'],
-            // dayC: ['yellow/Chem', 'red/CSA', 'orange/Spanish', 'green/Free', 'blue/English'],
-            // dayD: ['tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA', 'yellow/Chem'],
-            // dayE: ['orange/French', 'green/Free', 'blue/Theater Arts', 'tan/Math', 'violet/History'],
-            // dayF: ['pink/Math', 'red/CSA', 'yellow/Chem', 'orange/Spanish', 'green/Free'],
-            // dayG: ['blue/English', 'tan/Innovation', 'violet/History', 'pink/Math', 'red/CSA'],
-            // dayH: ['yellow/Chem', 'orange/Spanish', 'green/Free', 'blue/English', 'tan/Innovation'],
+            dayA: [PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow', OrangeColor + '/Orange'],
+            dayB: [GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink'],
+            dayC: [YellowColor + '/Yellow', RedColor + '/Red', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue'],
+            dayD: [TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow'],
+            dayE: [OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet'],
+            dayF: [PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow', OrangeColor + '/Orange', GreenColor + '/Green'],
+            dayG: [BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red'],
+            dayH: [YellowColor + '/Yellow', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan'],
         }
     };
 
