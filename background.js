@@ -1,3 +1,4 @@
+//Defining all starting variables
 let currentDate;
 let PurpleColor;
 let BlueColor;
@@ -9,6 +10,7 @@ let PinkColor;
 let RedColor;
 let schedule;
 
+//Finding out what classes have already been entered for each color
 chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor', 'OrangeColor', 'TanColor', 'PinkColor', 'RedColor'], function(data) {
     PurpleColor = data.PurpleColor;
     BlueColor = data.BlueColor;
@@ -18,12 +20,13 @@ chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor'
     TanColor = data.TanColor;
     PinkColor = data.PinkColor;
     RedColor = data.RedColor;
-    // Now you can use PurpleColor in your schedule
 
+//Making Schedule
     schedule = {
         NAVY: {
             //Navy + Gold = same
             //No M1 + M2 on schedule
+            //Have class + color to make it easier in popup
             dayA: [PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow', OrangeColor + '/Orange'],
             dayB: [GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink'],
             dayC: [YellowColor + '/Yellow', RedColor + '/Red', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue'],
