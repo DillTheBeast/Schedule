@@ -78,11 +78,9 @@ function getTomorrow() {
                         return;
                     }
                 }
-                console.log(`No schedule found for ${tomorrowDate}`);
                 reject(`No School tomorrow YAY!!!`);
             })
             .catch(error => {
-                console.error('An error occurred:', error);
                 reject(error);
             });
     });
