@@ -28,13 +28,13 @@ chrome.storage.sync.get(['PurpleColor', 'BlueColor', 'GreenColor', 'YellowColor'
             //No M1 + M2 on schedule
             //Have class + color to make it easier in popup
             dayA: [PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow', OrangeColor + '/Orange'],
-            dayB: [GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink'],
-            dayC: [YellowColor + '/Yellow', RedColor + '/Red', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue'],
+            dayB: [GreenColor + '/Green', BlueColor + '/LightBlue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink'],
+            dayC: [YellowColor + '/Yellow', RedColor + '/Red', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/LightBlue'],
             dayD: [TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow'],
-            dayE: [OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet'],
+            dayE: [OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/LightBlue', TanColor + '/Tan', PurpleColor + '/Violet'],
             dayF: [PinkColor + '/Pink', RedColor + '/Red', YellowColor + '/Yellow', OrangeColor + '/Orange', GreenColor + '/Green'],
-            dayG: [BlueColor + '/Blue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red'],
-            dayH: [YellowColor + '/Yellow', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/Blue', TanColor + '/Tan'],
+            dayG: [BlueColor + '/LightBlue', TanColor + '/Tan', PurpleColor + '/Violet', PinkColor + '/Pink', RedColor + '/Red'],
+            dayH: [YellowColor + '/Yellow', OrangeColor + '/Orange', GreenColor + '/Green', BlueColor + '/LightBlue', TanColor + '/Tan'],
         }
     };
 
